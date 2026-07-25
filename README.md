@@ -115,7 +115,7 @@ The investigation covers:
 - Revenue was relatively evenly distributed across regions, although the South generated the highest overall sales and the Central region recorded the lowest.
 - Higher discount levels were associated with lower revenue, fewer orders and reduced profitability, suggesting that larger discounts did not improve overall business performance.
 - Return rates increased slightly as delivery times became longer, indicating a possible relationship between delivery performance and product returns.
-- Adults and Middle-aged customers segments generated the highest revenue and profit, making them the most valuable customer segments within the dataset.
+- Adult and Middle-aged customers segments generated the highest revenue and profit, making them the most valuable customer segments within the dataset.
 
 ## Dashboard Preview
 

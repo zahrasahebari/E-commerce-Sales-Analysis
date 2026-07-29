@@ -14,10 +14,11 @@
 - [Key Findings](#key-findings)
 - [Business Recommendations](#business-recommendations)
 - [Repository Structure](#repository-structure)
+- [Project Report](#project-report)
 
 ## Executive Summary
 
-This end-to-end data analytics project analyses 34,500 e-commerce sales transactions to evaluate sales performance, customer behaviour and operational efficiency. PostgreSQL was used for data preparation, validation and business analysis, while Power BI was used to develop an interactive dashboard that enables users to monitor key performance indicators and explore business performance through interactive filtering.
+This end-to-end data analytics project analyses 34,500 e-commerce sales transactions to evaluate sales performance, customer behaviour, profitability and operational efficiency. PostgreSQL was used for data preparation, validation and business analysis, while Power BI was used to develop an interactive dashboard that enables users to monitor key performance indicators and explore business performance through interactive filtering.
 
 ## Business Objectives
 
@@ -33,7 +34,7 @@ The analysis focuses on:
 
 ## Dataset
 
-The analysis is based on an e-commerce sales dataset containing 34,500 transactions collected between September 2023 and September 2025. Each record corresponds to a completed customer order and includes information on:
+The analysis is based on the **E-commerce Sales Transactions Dataset**, containing **34,500** transactions collected between **September 2023 and September 2025**. Each record corresponds to a completed customer order and includes information on:
 
 - Orders and customers
 - Products and categories
@@ -46,7 +47,10 @@ The analysis is based on an e-commerce sales dataset containing 34,500 transacti
 - Product returns
 - Sales regions
 
-The dataset was sourced from Kaggle, imported into PostgreSQL for data preparation and analysis, and subsequently connected to Power BI for data modelling and dashboard development.
+The dataset was sourced from the **Kaggle E-commerce Sales Transactions Dataset**:
+https://www.kaggle.com/datasets/miadul/e-commerce-sales-transactions-dataset
+
+The data were loaded into PostgreSQL for data cleaning and SQL analysis, and subsequently imported into Power BI for data modelling, dashboard development and interactive visualisation.
 
 ## Data Model
 
@@ -61,7 +65,7 @@ The `sales` table contains information across six business areas:
 - Delivery performance
 - Return status
 
-To support interactive reporting and time-based analysis, the data was imported into Power BI and modelled using a simple star schema.
+To support interactive reporting, KPI calculations and time-based analysis, the data was imported into Power BI and modelled using a simple star schema.
 
 The final Power BI data model consists of:
 
@@ -124,7 +128,7 @@ The investigation covers:
 
 An interactive Power BI dashboard was developed to enable users to explore sales performance through dynamic filtering and KPI monitoring.
 
-The dashboard includes:
+The dashboard provides:
 
 - Revenue, Orders, Customers, Profit, Average Order Value and Return Rate KPIs
 - Monthly Revenue Trend
@@ -137,6 +141,8 @@ The dashboard includes:
 ### Dashboard Overview
 
 ![Power BI Dashboard](images/dashboard-overview.png)
+
+The dashboard enables users to monitor key performance indicators and interactively explore sales performance across products, customers, regions and time.
 
 The Power BI report (`.pbix`) is available in the `powerbi` folder, while the SQL scripts used throughout the analysis are organised within the `sql` directory.
 
@@ -180,3 +186,10 @@ E-commerce-Sales-Analysis/
 ├── LICENSE
 └── .gitignore
 ```
+
+## Project Report
+
+A detailed report of the project, including the methodology, SQL analysis, business insights and recommendations, is available in the Kaggle notebook.
+
+**Kaggle Notebook:**  
+https://www.kaggle.com/code/zahrasahebari/notebook7b57061559

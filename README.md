@@ -1,24 +1,23 @@
-# E-commerce Sales Performance Analysis with PostgreSQL
-**Tools:** PostgreSQL • SQL • pgAdmin 4
+# E-commerce Sales Analysis using SQL & Power BI
+**Tools:** PostgreSQL • SQL • Power BI • DAX • pgAdmin 4 • Git • GitHub
 
 ## Table of Contents
 
 - [Executive Summary](#executive-summary)
 - [Business Objectives](#business-objectives)
 - [Dataset](#dataset)
-- [Database Schema](#database-schema)
+- [Data Model](#data-model)
 - [Data Quality Assessment](#data-quality-assessment)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Business Questions](#business-questions)
+- [Power BI Dashboard](#power-bi-dashboard)
 - [Key Findings](#key-findings)
-- [Dashboard Preview](#dashboard-preview)
 - [Business Recommendations](#business-recommendations)
+- [Repository Structure](#repository-structure)
 
 ## Executive Summary
 
-This project analyses 34,500 e-commerce sales transactions using PostgreSQL to evaluate sales performance, customer behaviour and operational efficiency.
-
-The project follows a structured analytical workflow, beginning with data quality validation and exploratory analysis before addressing key business questions related to revenue, profitability, customer behaviour and regional performance.
+This end-to-end data analytics project analyses 34,500 e-commerce sales transactions to evaluate sales performance, customer behaviour and operational efficiency. PostgreSQL was used for data preparation, validation and business analysis, while Power BI was used to develop an interactive dashboard that enables users to monitor key performance indicators and explore business performance through interactive filtering.
 
 ## Business Objectives
 
@@ -47,13 +46,13 @@ The analysis is based on an e-commerce sales dataset containing 34,500 transacti
 - Product returns
 - Sales regions
 
-The dataset was sourced from Kaggle and imported into PostgreSQL for analysis.
+The dataset was sourced from Kaggle, imported into PostgreSQL for data preparation and analysis, and subsequently connected to Power BI for data modelling and dashboard development.
 
-## Database Schema
+## Data Model
 
-The dataset was imported into a single PostgreSQL table named `sales`, where each row represents a completed customer order.
+The original dataset was imported into a PostgreSQL table named `sales`, where each row represents a completed customer order.
 
-The table contains information across six business areas:
+The `sales` table contains information across six business areas:
 
 - Customer information
 - Product information
@@ -62,7 +61,20 @@ The table contains information across six business areas:
 - Delivery performance
 - Return status
 
-The complete table definition is available in `sql/00_database_setup.sql`.
+To support interactive reporting and time-based analysis, the data was imported into Power BI and modelled using a simple star schema.
+
+The final Power BI data model consists of:
+
+- **Sales** – Fact table containing 34,500 transaction records.
+- **Date** – Dimension table created in Power BI using DAX to enable analysis by year, quarter and month.
+
+A one-to-many relationship was established between the `Date` and `Sales` tables using the `order_date` field, enabling accurate time intelligence, KPI calculations and consistent filter propagation across all dashboard visuals.
+
+The SQL script used to create the `sales` table is available in `sql/00_database_setup.sql`.
+
+### Star Schema
+
+![Star Schema](images/star-schema.png)
 
 ## Data Quality Assessment
 
@@ -108,6 +120,26 @@ The investigation covers:
 - Monthly sales trends
 - Customer and product rankings
 
+## Power BI Dashboard
+
+An interactive Power BI dashboard was developed to enable users to explore sales performance through dynamic filtering and KPI monitoring.
+
+The dashboard includes:
+
+- Revenue, Orders, Customers, Profit, Average Order Value and Return Rate KPIs
+- Monthly Revenue Trend
+- Revenue by Product Category
+- Revenue by Sales Region
+- Orders by Payment Method
+- Product Return Rate by Category
+- Average Delivery Time by Region
+
+### Dashboard Overview
+
+![Power BI Dashboard](images/dashboard-overview.png)
+
+The Power BI report (`.pbix`) is available in the `powerbi` folder, while the SQL scripts used throughout the analysis are organised within the `sql` directory.
+
 ## Key Findings
 
 - Electronics was the strongest-performing product category, generating the highest revenue, total profit and average profit per order.
@@ -117,9 +149,6 @@ The investigation covers:
 - Return rates increased slightly as delivery times became longer, indicating a possible relationship between delivery performance and product returns.
 - Adult and Middle-aged customers segments generated the highest revenue and profit, making them the most valuable customer segments within the dataset.
 
-## Dashboard Preview
-
-*A Power BI dashboard will be added in the next phase of the project.*
 
 ## Business Recommendations
 
@@ -133,3 +162,21 @@ Based on the analysis, the following recommendations could help improve business
 - Monitor category profitability alongside revenue to ensure commercial decisions are driven by both sales growth and financial performance.
 
 These recommendations are based on the available transactional data. Incorporating additional information, such as marketing campaigns, inventory levels, customer lifetime value and product costs, would enable a more comprehensive business assessment.
+
+## Repository Structure
+
+```text
+E-commerce-Sales-Analysis/
+│
+├── data/                          # Raw dataset
+├── images/                        # README images
+├── powerbi/                       # Power BI dashboard (.pbix)
+├── sql/
+│   ├── 00_database_setup.sql
+│   ├── 01_data_quality_checks.sql
+│   ├── 02_exploratory_analysis.sql
+│   └── 03_business_questions.sql
+├── README.md
+├── LICENSE
+└── .gitignore
+```

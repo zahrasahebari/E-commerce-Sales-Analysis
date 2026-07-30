@@ -191,5 +191,4 @@ E-commerce-Sales-Analysis/
 
 A detailed report of the project, including the methodology, SQL analysis, business insights and recommendations, is available in the Kaggle notebook.
 
-**Kaggle Notebook:**  
-https://www.kaggle.com/code/zahrasahebari/e-commerce-sales-analysis-sql-power-bi-portfol
+**Kaggle Notebook:** [View Notebook](https://www.kaggle.com/code/zahrasahebari/e-commerce-sales-analysis-sql-power-bi)
